@@ -1,0 +1,24 @@
+package com.hello.netty.messagepack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.msgpack.MessagePack;
+
+/**
+ * 测试message框架api
+ * @author Administrator
+ *
+ */
+public class FirstMesssagePack {
+	
+	public static void main(String[] args) {
+		List<String>strs = new ArrayList<String>();
+		strs.add("你好");
+		strs.add("还行吧");
+		strs.add("凑活干着点");
+		MessagePack msgPack  = new MessagePack();
+		byte [] bytes = msgPack.write(strs);
+	}
+	
+}

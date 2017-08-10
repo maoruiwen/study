@@ -1,0 +1,24 @@
+package com.hello.netty.marshalling;
+
+import org.jboss.marshalling.MarshallerFactory;
+import org.jboss.marshalling.Marshalling;
+import org.jboss.marshalling.MarshallingConfiguration;
+
+import io.netty.handler.codec.marshalling.DefaultUnmarshallerProvider;
+import io.netty.handler.codec.marshalling.MarshallingDecoder;
+import io.netty.handler.codec.marshalling.UnmarshallerProvider;
+
+public class MarshallingCodeCfactory1 {
+	
+	public static MarshallingDecoder buildDecoder(){
+		
+		MarshallerFactory mfactory = Marshalling.getProvidedMarshallerFactory("serial");//构建marshalling 工厂
+		MarshallingConfiguration mConfig = new MarshallingConfiguration();//创建marshalling config
+		mConfig.setVersion(5);
+		 UnmarshallerProvider provider = new DefaultUnmarshallerProvider(mfactory, mConfig);
+		 
+		 MarshallingDecoder decoder = new MarshallingDecoder(provider);
+		
+		return decoder;
+	}
+}

@@ -1,0 +1,13 @@
+package com.hello.netty.xieyi.coder.util;
+
+import org.jboss.marshalling.Marshaller;
+
+public class MarshllingEncoder {
+
+	private static final byte [] LENGTH_PLACEHOLDER = new byte[4];
+	Marshaller marshaller;
+	
+	public MarshllingEncoder() {
+	}
+	
+}

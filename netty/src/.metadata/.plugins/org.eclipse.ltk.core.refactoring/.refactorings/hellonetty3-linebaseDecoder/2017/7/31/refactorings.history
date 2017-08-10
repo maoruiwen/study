@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;hellonetty9-messagepack/src/main/java/com.hello.netty.client&apos;&#x0D;&#x0A;- Original project: &apos;hellonetty3-linebaseDecoder&apos;&#x0D;&#x0A;- Destination element: &apos;hellonetty9-messagepack/src/main/java/com.hello.netty.client&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.hello.netty.client.TimeClient.java&#x0D;&#x0A;     com.hello.netty.client.TimerClientHandle.java" description="Copy compilation units" destination="=hellonetty9-messagepack/src\/main\/java&lt;com.hello.netty.client" element1="/src\/main\/java&lt;com.hello.netty.client{TimeClient.java" element2="/src\/main\/java&lt;com.hello.netty.client{TimerClientHandle.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1501477819887" units="2" version="1.0"/>
+</session>

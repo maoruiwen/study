@@ -1,0 +1,14 @@
+package com.hello.netty.messagepack;
+
+/**
+ * 测试message框架api
+ * @author Administrator
+ *
+ */
+public class FirstMesssagePack {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

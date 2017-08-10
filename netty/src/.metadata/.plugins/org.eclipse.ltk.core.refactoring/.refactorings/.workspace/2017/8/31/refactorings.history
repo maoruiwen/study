@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;hellonetty10-messagepack&apos; to &apos;hellonetty10-msgpack-LengthFieldBasedFrameDecoder&apos;" description="Rename resource &apos;hellonetty10-messagepack&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/hellonetty10-messagepack" name="hellonetty10-msgpack-LengthFieldBasedFrameDecoder" stamp="1501649499651" updateReferences="true"/>
+</session>

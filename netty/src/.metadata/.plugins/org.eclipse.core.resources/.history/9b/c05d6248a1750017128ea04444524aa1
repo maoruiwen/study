@@ -1,0 +1,8 @@
+1，netty 基本实现。完成netty 之间相互发送
+2，修改netty handle程序， 重现netty粘包拆包场景。
+3,添加解码器策略。  (行级解码器)（lineBaseFrameDecoder---->遍历bytebuf 中的值，遇到\r\n 认为是一条数据。转给StringDecoder） 解决Tcp 粘包/拆包，半包读。问题。(StringDecoder -->  bytebuf 转换成string数据后。 分配到相应的人handle)用来把bytebuf 数据转换成字符串。
+4,添加logerHander 用于打印日志。  配置delimiterBaseFrameDecoder （自定义分隔符） 进行拆包，粘包运算。
+5，更换fixedLengthBaseDecoder解码器。  设置固定长度数据，根据固定长度读取数据。并用telnet 进行测试数据。（只编写服务端）
+6，测试序列化编码， 并测试传统的序列化占用的空间大小。（java 序列化不能跨语言访问）
+7,测试序列化生成执行效率。jdk 自带的序列化  速度慢，大概效率低于10倍左右。二进制编码。
+8，二进制框架 messagepack（支持多种语言，可跨语言开发。）fistMessagePack 进行测试开发。

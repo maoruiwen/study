@@ -1,0 +1,43 @@
+package com.hello.netty.xieyi.auth;
+
+import com.hello.netty.xieyi.entry.Header;
+import com.hello.netty.xieyi.entry.NettyMessage;
+
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+
+public class LoginAuthReqHandler extends ChannelHandlerAdapter {
+
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		ctx.writeAndFlush(buildMessage());
+	}
+
+	@Override
+	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+		
+		NettyMessage message = msg;
+		
+	}
+	
+	public NettyMessage buildMessage(){
+		NettyMessage nettyMessage = new NettyMessage();
+		Header header = new Header();
+		header.setType((byte)3);//3握手请求
+		nettyMessage.setHeader(header);
+		return nettyMessage;
+	}
+
+	/*
+	 * 捕获异常
+	 * @see io.netty.channel.ChannelHandlerAdapter#exceptionCaught(io.netty.channel.ChannelHandlerContext, java.lang.Throwable)
+	 */
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+		ctx.fireExceptionCaught(cause);
+	}
+
+	
+	
+	
+}

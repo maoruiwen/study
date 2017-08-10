@@ -1,0 +1,4 @@
+1，netty 基本实现。完成netty 之间相互发送
+2，修改netty handle程序， 重现netty粘包拆包场景。
+3,添加解码器策略。  (行级解码器)（lineBaseFrameDecoder---->遍历bytebuf 中的值，遇到\r\n 认为是一条数据。转给StringDecoder） 解决Tcp 粘包/拆包，半包读。问题。(StringDecoder -->  bytebuf 转换成string数据后。 分配到相应的人handle)用来把bytebuf 数据转换成字符串。
+4,添加logerHander 用于打印日志。  配置delimiterBaseFrameDecoder （自定义分隔符） 进行拆包，粘包运算。

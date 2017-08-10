@@ -1,0 +1,41 @@
+package com.hello.netty.xieyi.client;
+
+import com.hello.netty.xieyi.entry.NettyMessage;
+
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.concurrent.ScheduledFuture;
+
+/**
+ * 发送心跳消息。定义线程
+ * @author Administrator
+ *
+ */
+public class HeartBeatReqHandler extends ChannelHandlerAdapter {
+	
+	private volatile ScheduledFuture<?>heartBeat;
+	
+	@Override
+	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+		NettyMessage message = (NettyMessage) msg;
+		if(message.getHeader()!=null&&message.getHeader().getType()==6){
+			heartBeat = ctx.executor().scheduleAtFixedRate(command, initialDelay, period, unit)
+		}
+	}
+	
+	/*构建心跳线程*/
+	private class HeartBeatTask implements Runnable{
+		
+		private final ChannelHandlerContext ctx;
+
+		public void run() {
+			
+		}
+		
+	}
+
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+	}
+	
+}

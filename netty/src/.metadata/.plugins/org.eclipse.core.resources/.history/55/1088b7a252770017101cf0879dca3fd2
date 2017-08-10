@@ -1,0 +1,25 @@
+package com.hello.netty.xieyi.client;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+
+/**
+ * netty 客户端
+ * @author Administrator
+ *
+ */
+public class NettyClient {
+	
+	private ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);//固定大小的线程池。
+	
+	EventLoopGroup group = new NioEventLoopGroup();
+	
+	/*客户端链接*/
+	public void connect(int port,String host){
+		
+	}
+	
+}

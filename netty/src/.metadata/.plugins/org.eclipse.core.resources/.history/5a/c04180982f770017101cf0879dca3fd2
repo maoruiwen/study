@@ -1,0 +1,15 @@
+package com.hello.netty.xieyi.entry;
+
+/**
+ * 自定义消息请求头
+ * @author maorw
+ *
+ */
+public final class Header {
+
+	private int crcCode = 0xabef0101;
+	
+	public static void main(String[] args) {
+		System.out.println("10101011111011110000000100000001".length());
+	}
+}

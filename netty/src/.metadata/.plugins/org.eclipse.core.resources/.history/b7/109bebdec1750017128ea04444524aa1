@@ -1,0 +1,16 @@
+package com.hello.netty.marshalling;
+
+import org.jboss.marshalling.MarshallerFactory;
+import org.jboss.marshalling.Marshalling;
+
+import io.netty.handler.codec.marshalling.MarshallingDecoder;
+
+public class MarshallingCodeCfactory1 {
+	
+	public static MarshallingDecoder buildDecoder(){
+		
+		MarshallerFactory mfactory = Marshalling.getProvidedMarshallerFactory("");
+		
+		return null;
+	}
+}

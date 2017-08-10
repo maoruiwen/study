@@ -1,0 +1,5 @@
+package com.hello.netty.xieyi.client;
+
+public class NettyClient {
+
+}

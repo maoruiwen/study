@@ -1,0 +1,5 @@
+package com.hello.netty.xieyi.entry;
+
+public final class Header {
+
+}

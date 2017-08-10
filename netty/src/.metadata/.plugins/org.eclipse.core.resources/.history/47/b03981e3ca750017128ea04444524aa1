@@ -1,0 +1,14 @@
+package com.hello.netty.http;
+
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+
+public class HttpFileServer {
+	
+	public void run(int port){
+		
+		EventLoopGroup boosGroup = new NioEventLoopGroup();
+		
+	}
+	
+}

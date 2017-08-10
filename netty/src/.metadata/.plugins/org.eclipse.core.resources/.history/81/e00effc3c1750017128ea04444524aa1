@@ -1,0 +1,5 @@
+package com.hello.netty.marshalling;
+
+public class MarshallingCodeCfactory1 {
+
+}

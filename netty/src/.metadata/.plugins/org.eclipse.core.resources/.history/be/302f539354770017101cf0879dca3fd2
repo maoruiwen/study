@@ -1,0 +1,9 @@
+package com.hello.netty.xieyi.server;
+
+public class NettyServer {
+	
+	public void bind(int port){
+		
+	}
+	
+}

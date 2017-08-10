@@ -1,0 +1,50 @@
+package com.hello.netty.http;
+
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpRequestDecoder;
+import io.netty.handler.codec.http.HttpRequestEncoder;
+import io.netty.handler.stream.ChunkedWriteHandler;
+
+public class HttpFileServer {
+	
+	public void run(int port,String url){
+		
+		EventLoopGroup bossGroup = new NioEventLoopGroup();
+		EventLoopGroup workGroup = new NioEventLoopGroup();
+		
+		ServerBootstrap sbs = new ServerBootstrap();
+		sbs.group(bossGroup, workGroup).channel(NioServerSocketChannel.class)
+		.childHandler(new ChildHander());
+		
+		try {
+			ChannelFuture future = sbs.bind(port).sync();
+			future.channel().close().sync();
+		} catch (InterruptedException e) {
+			bossGroup.shutdownGracefully();
+			workGroup.shutdownGracefully();
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private class ChildHander extends ChannelInitializer<SocketChannel> {
+
+		@Override
+		protected void initChannel(SocketChannel ch) throws Exception {
+			ch.pipeline().addLast("http-decoder",new HttpRequestDecoder())
+			.addLast("http-aggregator",new HttpObjectAggregator(65536)) //将多个消息转换成单一的FullHttpRequest 或者 fullhttpResponse.
+			.addLast("http-encoder",new HttpRequestEncoder())
+			.addLast("http-chunked",new ChunkedWriteHandler())
+			;
+		}
+		
+	}
+	
+}

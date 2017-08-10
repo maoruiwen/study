@@ -1,0 +1,29 @@
+package com.hello.netty.xieyi.auth;
+
+import com.hello.netty.xieyi.entry.Header;
+import com.hello.netty.xieyi.entry.NettyMessage;
+
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+
+public class LoginAuthRespHandler extends ChannelHandlerAdapter {
+
+
+	@Override
+	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+		// TODO Auto-generated method stub
+		super.channelRead(ctx, msg);
+	}
+	
+	
+	/*握手应答消息*/
+	private NettyMessage buildRespon(byte result) {  
+        NettyMessage message = new NettyMessage();  
+        Header header = new Header();  
+        header.setType((byte)4); //握手应答消息  
+        message.setHeader(header);  
+        message.setBody(result);  
+        return message;  
+    }  
+
+}

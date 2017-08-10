@@ -1,0 +1,5 @@
+package com.hello.netty.messagepack.decoder;
+
+public class MsgPackDecoder {
+
+}

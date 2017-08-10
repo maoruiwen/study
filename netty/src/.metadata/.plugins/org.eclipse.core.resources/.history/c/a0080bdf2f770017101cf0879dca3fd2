@@ -1,0 +1,13 @@
+package com.hello.netty.xieyi.entry;
+
+/**
+ * 自定义消息请求头
+ * @author maorw
+ *
+ */
+public final class Header {
+
+	private int crcCode = 0xabef0101;//消息校验码（2884567297）1，0xabef + 主版本号 +次版本号 
+	
+	
+}

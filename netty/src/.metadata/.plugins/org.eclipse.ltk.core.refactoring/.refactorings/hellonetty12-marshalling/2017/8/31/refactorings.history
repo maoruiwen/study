@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MarshallingCodeCFactory.java&apos; to &apos;hellonetty15-xieyi/src/main/java/com.hello.netty.xieyi.coder.util&apos;&#x0D;&#x0A;- Original project: &apos;hellonetty12-marshalling&apos;&#x0D;&#x0A;- Destination element: &apos;hellonetty15-xieyi/src/main/java/com.hello.netty.xieyi.coder.util&apos;&#x0D;&#x0A;- Original element: &apos;com.hello.netty.marshalling.MarshallingCodeCFactory.java&apos;" description="Copy compilation unit" destination="=hellonetty15-xieyi/src\/main\/java&lt;com.hello.netty.xieyi.coder.util" element1="/src\/main\/java&lt;com.hello.netty.marshalling{MarshallingCodeCFactory.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1501643968824" units="1" version="1.0"/>
+</session>

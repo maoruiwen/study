@@ -1,0 +1,5 @@
+package com.hello.netty.entry;
+
+public class UserInfo {
+
+}

@@ -1,0 +1,6 @@
+package com.hello.netty.xieyi.entry;
+
+public class NettyMessage {
+	private Header header;
+	private Object body;
+}

@@ -1,0 +1,13 @@
+package com.hello.netty.xieyi.server;
+
+import io.netty.channel.ChannelHandlerAdapter;
+
+/**
+ * 心跳应答请求
+ * @author Administrator
+ *
+ */
+public class HeartBeatRespHandler extends ChannelHandlerAdapter {
+
+	
+}

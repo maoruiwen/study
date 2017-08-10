@@ -1,0 +1,15 @@
+package com.hello.netty.xieyi.client;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+
+/**
+ * netty 客户端
+ * @author Administrator
+ *
+ */
+public class NettyClient {
+	
+	private ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+	
+}

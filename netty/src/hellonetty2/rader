@@ -1,0 +1,2 @@
+1，netty 基本实现。完成netty 之间相互发送
+2，修改netty handle程序， 重现netty粘包拆包场景。

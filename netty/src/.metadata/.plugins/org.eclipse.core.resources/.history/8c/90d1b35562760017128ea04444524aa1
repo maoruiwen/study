@@ -1,0 +1,62 @@
+package com.hello.netty.http;
+
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpRequestDecoder;
+import io.netty.handler.codec.http.HttpRequestEncoder;
+import io.netty.handler.stream.ChunkedWriteHandler;
+
+public class HttpFileServer {
+	private static final String DEFAULT_URL = "/src/";
+	public void run(final int port, String url){
+		
+		EventLoopGroup bossGroup = new NioEventLoopGroup();
+		EventLoopGroup workGroup = new NioEventLoopGroup();
+		
+		ServerBootstrap b = new ServerBootstrap();
+		b.group(bossGroup, workGroup).channel(NioServerSocketChannel.class)
+		.childHandler(new ChildHander(url));
+		
+		try {
+			  ChannelFuture f = b.bind("localhost", port).sync();
+	          System.out.println("HTTP 文件服务器启动, 地址是： " + "http://localhost:" + port + url);
+	         f.channel().closeFuture().sync();
+		} catch (InterruptedException e) {
+			bossGroup.shutdownGracefully();
+			workGroup.shutdownGracefully();
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private class ChildHander extends ChannelInitializer<SocketChannel> {
+		private final String url;
+		public ChildHander(String url) {
+			this.url = url;
+		}
+		
+		@Override
+		protected void initChannel(SocketChannel ch) throws Exception {
+			ch.pipeline().addLast("http-decoder",new HttpRequestDecoder())
+			.addLast("http-aggregator",new HttpObjectAggregator(65536)) //将多个消息转换成单一的FullHttpRequest 或者 fullhttpResponse.
+			.addLast("http-encoder",new HttpRequestEncoder())
+			.addLast("http-chunked",new ChunkedWriteHandler()) //主要针对大的流量码。防止内存溢出。
+			.addLast("fileServerHandler", new HttpFileServerHandler(url));
+		}
+		
+	}
+	
+	
+	 public static void main(String[] args)throws Exception {
+	        int port = 8888;
+	        String url = DEFAULT_URL;
+	        new HttpFileServer().run(port, url);
+	    }
+	
+}

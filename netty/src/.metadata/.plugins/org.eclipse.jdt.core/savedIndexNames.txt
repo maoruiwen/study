@@ -1,0 +1,8 @@
+INDEX VERSION 1.127+F:\study\netty\src\.metadata\.plugins\org.eclipse.jdt.core
+2505898176.index
+97665099.index
+1135865901.index
+2352817404.index
+4195035257.index
+2755277110.index
+4282175671.index

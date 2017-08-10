@@ -1,0 +1,10 @@
+package com.hello.netty.xieyi.entry;
+
+/**
+ * 自定义消息请求头
+ * @author maorw
+ *
+ */
+public final class Header {
+
+}

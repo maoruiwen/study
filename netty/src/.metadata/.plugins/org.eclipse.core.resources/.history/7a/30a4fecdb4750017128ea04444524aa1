@@ -1,0 +1,29 @@
+package com.hello.netty.messagepack.decoder;
+
+import java.util.List;
+
+import org.msgpack.MessagePack;
+
+import com.hello.netty.entry.UserInfo;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.ByteToMessageDecoder;
+
+/**
+ * 自定义解码器 。反解码。
+ * @author Administrator
+ *
+ */
+public class MsgPackDecoder extends ByteToMessageDecoder {
+
+	@Override
+	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+		  final byte[] array;  
+	        final int length = msg.readableBytes();  
+	        array = new byte[length];  
+	        msg.getBytes(msg.readableBytes(), array, 0, length);  
+	        MessagePack msgPack = new MessagePack();  
+	        out.add(msgPack.read(array));  
+	}
+}

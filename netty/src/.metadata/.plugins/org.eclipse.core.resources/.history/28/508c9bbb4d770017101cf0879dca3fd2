@@ -1,0 +1,24 @@
+package com.hello.netty.xieyi.client;
+
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.concurrent.ScheduledFuture;
+
+/**
+ * 发送心跳消息。定义线程
+ * @author Administrator
+ *
+ */
+public class HeartBeatReqHandler extends ChannelHandlerAdapter {
+	
+	private volatile ScheduledFuture<?>heartBeat;
+	
+	@Override
+	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+	}
+
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+	}
+	
+}

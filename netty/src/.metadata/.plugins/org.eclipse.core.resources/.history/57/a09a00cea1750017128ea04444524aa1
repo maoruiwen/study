@@ -1,0 +1,7 @@
+package com.hello.netty.messagepack.encoder;
+
+import io.netty.handler.codec.MessageToByteEncoder;
+
+public class MsgPackEncoder extends MessageToByteEncoder<Object> {
+
+}

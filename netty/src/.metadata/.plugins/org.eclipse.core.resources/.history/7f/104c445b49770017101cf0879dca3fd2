@@ -1,0 +1,49 @@
+package com.hello.netty.xieyi.auth;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.hello.netty.xieyi.entry.Header;
+import com.hello.netty.xieyi.entry.NettyMessage;
+
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+
+/**
+ * 服务端登录验证hander
+ * @author Administrator
+ *
+ */
+public class LoginAuthRespHandler extends ChannelHandlerAdapter {
+	
+	private Map<String,Boolean>nodecheck = new ConcurrentHashMap<String,Boolean>();
+	private String [] whitekList = {"127.0.0.1"};//白名单
+
+	@Override
+	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+		NettyMessage message = (NettyMessage) msg;
+		if(message.getHeader()!=null&&message.getHeader().getType()==3){
+			String nodeIndex = ctx.channel().remoteAddress().toString();//获取链接ip
+			NettyMessage loginResul = null;
+		}
+	}
+	
+	
+	/*握手应答消息*/
+	private NettyMessage buildRespon(byte result) {  
+        NettyMessage message = new NettyMessage();  
+        Header header = new Header();  
+        header.setType((byte)4); //握手应答消息  
+        message.setHeader(header);  
+        message.setBody(result);  
+        return message;  
+    }  
+	
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+		
+		super.exceptionCaught(ctx, cause);
+	}
+	
+
+}
