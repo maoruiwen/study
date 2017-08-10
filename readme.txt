@@ -8,3 +8,4 @@ test git log --pretty=oneline
 git reset --hard HARD^
 
 diff version 
+test remote
