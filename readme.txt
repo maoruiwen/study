@@ -9,3 +9,4 @@ git reset --hard HARD^
 
 diff version 
 test remote
+test  remote remote
