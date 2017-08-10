@@ -1,2 +1,3 @@
 my second github
 	i wile test github and study English
+update file.txt and test github add -A
